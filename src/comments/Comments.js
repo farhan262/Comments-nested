@@ -67,7 +67,7 @@ function Comments({ currentUserId }) {
       <div className="comments-container">
         {rootComments.map((rootComment) => (
           <div key={rootComment.id}>
-            {rootComment.body}
+            {/* {rootComment.body} */}
             <Comment
               key={rootComment.id}
               comment={rootComment}

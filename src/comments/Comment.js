@@ -17,8 +17,9 @@ function Comment({
   const fiveMinutes = 300000;
   const timePassed = new Date() - new Date(comment.createdAt) > fiveMinutes;
   const canReply = Boolean(currentUserId);
-  const canEdit = currentUserId === comment.UserId && !timePassed;
-  const canDelete = currentUserId === comment.UserId && !timePassed;
+  const canEdit = currentUserId === comment.userId && !timePassed;
+
+  const canDelete = currentUserId === comment.userId && !timePassed;
   const createdAt = new Date(comment.createdAt).toLocaleDateString();
   const isReplying =
     activecomment &&
@@ -49,6 +50,7 @@ function Comment({
             handleCancel={() => setActivecomment(null)}
           />
         )}
+        {console.log(canReply, canEdit, canDelete, "buttons")}
         <div className="comment-actions">
           {canReply && (
             <div
